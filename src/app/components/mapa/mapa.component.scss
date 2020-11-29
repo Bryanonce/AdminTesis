@@ -1,0 +1,35 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.contmapa {
+    height: 100%;
+    width: 100%;
+}
+
+#mapa-mapbox {
+    margin: auto;
+    height: 81%;
+    background: red;
+    width: 100%;
+}
+
+.contenedor {
+    position: fixed;
+    z-index: 200;
+    margin: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contenedor label {
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 5px;
+}
+
+input {
+    color: black;
+}

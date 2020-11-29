@@ -1,0 +1,57 @@
+<div class="pb-5 container d-flex align-items-center justify-content-center">
+    <form>
+        <h2>Parámetros del Mapa de Calor</h2>
+        <br>
+        <div class="form-row">
+            <h3>Centrado del Mapa</h3>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Latitud</label>
+                <input #laticentro type="number" class="form-control" id="inputEmail4" placeholder="Ingrese Latitud">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Longitud</label>
+                <input #longicentro type="number" class="form-control" id="inputPassword4" placeholder="Ingrese Longitud">
+            </div>
+        </div>
+
+        <br>
+        <div class="form-row">
+            <h3>Rango para Toma de mediciones</h3>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Latitud Mínima</label>
+                <input #latimin type="number" class="form-control" id="inputEmail4" placeholder="Ingrese Latitud Mínima">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputPassword4">Latitud Máxima</label>
+                <input #latimax type="number" class="form-control" id="inputPassword4" placeholder="Ingrese Latitud Máxima">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Longitud Mínima</label>
+                <input #longimin type="number" class="form-control" id="inputEmail4" placeholder="Ingrese Longitud Mínima">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Longitud Máxima</label>
+                <input #longimax type="number" class="form-control" id="inputEmail4" placeholder="Ingrese Longitud Máxima">
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <h3>Apectos visuales</h3>
+        </div>
+
+        <div class="form-group">
+            <label for="inputAddress">Intensidad de Mediciones</label>
+            <input type="range" min="0" max="2" step="0.01" class="custom-range" id="customRange1" #slider>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="guardarData()">Actualizar</button>
+    </form>
+</div>
