@@ -5,5 +5,7 @@ export const environment = {
   wsurl: 'https://socketiotesis.herokuapp.com/',
   ApiGoogle: 'https://socketiotesis.herokuapp.com/google',
   ApirestUlti: 'https://socketiotesis.herokuapp.com/ultidatos',
+  ApirestUsers: 'https://socketiotesis.herokuapp.com/users',
+  ApirestLogin: 'https://socketiotesis.herokuapp.com/login',
   horaDesf: 0
 };

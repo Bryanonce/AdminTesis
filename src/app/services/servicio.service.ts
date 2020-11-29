@@ -26,4 +26,9 @@ export class ServicioService {
   getDatosSimplex(url:string){
     return this.http.get(url);
   }
+  postLogin(url:string,login:{email:string,pass:string}){
+    return this.http.post(url,login)
+  }
+
+
 }

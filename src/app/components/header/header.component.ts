@@ -12,7 +12,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  cerrarSession(){
+    localStorage.removeItem('tokenIdSafeMap');
+    location.reload();
+  }
 
 
 }

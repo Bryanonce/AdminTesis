@@ -8,12 +8,12 @@
             <li class="nav-item active">
                 <a class="nav-link text-light" routerLink="mapa">Mapa <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link text-light" href="#">Solicitudes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="#">Historial</a>
-            </li>
+            </li>-->
             <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Administración
@@ -22,6 +22,15 @@
                     <a class="dropdown-item" routerLink="cuentas">Cuentas</a>
                     <a class="dropdown-item" routerLink="dash">Configuraciones</a>
                     <a class="dropdown-item" href="#">Historial</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mi Cuenta
+          </a>
+                <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="cuentas">Editar</a>
+                    <a class="dropdown-item" routerLink="" (click)="cerrarSession()">Cerrar Sesión</a>
                 </div>
             </li>
         </ul>

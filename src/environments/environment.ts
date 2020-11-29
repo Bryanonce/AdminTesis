@@ -10,6 +10,8 @@ export const environment = {
   ApiGoogle: 'https://socketiotesis.herokuapp.com/google',
   ApirestUlti: 'https://socketiotesis.herokuapp.com/ultidatos',
   ApirestConfig: 'http://localhost:5000/config',
+  ApirestUsers: 'http://localhost:5000/users',
+  ApirestLogin: 'http://localhost:5000/login',
   horaDesf: 0
 };
 

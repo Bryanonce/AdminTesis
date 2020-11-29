@@ -1,5 +1,16 @@
 <ng-template #login>
     <app-login></app-login>
+    <div class="container d-flex align-items-center justify-content-center">
+        <form>
+            <div class="form-group">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button (click)="verificarLogin()" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 </ng-template>
 <ng-template #dash>
     <app-header></app-header>
@@ -9,6 +20,6 @@
 
 
 
-<div *ngIf="variable;then login;else dash">
+<div *ngIf="!variable;then login;else dash">
 
 </div>
