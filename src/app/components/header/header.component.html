@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-    <a class="navbar-brand text-light" href="#">Bienbenido</a>
+    <a class="navbar-brand text-light" href="#">Bienvenido {{usuario}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,8 +29,8 @@
             Mi Cuenta
           </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" routerLink="cuentas">Editar</a>
-                    <a class="dropdown-item" routerLink="" (click)="cerrarSession()">Cerrar Sesión</a>
+                    <a class="dropdown-item curs-point" (click)="miCuenta()">Editar</a>
+                    <a class="dropdown-item curs-point" (click)="cerrarSession()">Cerrar Sesión</a>
                 </div>
             </li>
         </ul>

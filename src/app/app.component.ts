@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 
 //Services
 import { ServicioService } from './services/servicio.service';
+import { AdminTokenService } from './services/admin-token.service';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +22,12 @@ export class AppComponent implements OnInit{
   public variable = false;
 
   constructor(
-    private _servicio: ServicioService
+    private _servicio: ServicioService,
+    private _admin:AdminTokenService
   ){
     if(localStorage.getItem('tokenIdSafeMap')){
       const token = localStorage.getItem('tokenIdSafeMap');
-      const payload = this.getJwtPayload(token);
+      const payload = this._admin.getJwtPayload(token);
       const fecha = new Date();
       const time = Math.round(fecha.getTime()/1000);
       console.log(time);
@@ -43,14 +45,6 @@ export class AppComponent implements OnInit{
     
   }
 
-
-  getJwtPayload(token:string):{exp:number,iat:number,usuarioDb:any}{
-    var base64Url = token.split('.')[1];
-      var base64 = base64Url.replace('-', '+').replace('_', '/');
-      return JSON.parse(window.atob(base64));
-  }
-
-
   ngOnInit(){
     
   } 
@@ -63,6 +57,8 @@ export class AppComponent implements OnInit{
       if(res.ok){
         this.variable = res.ok;
         localStorage.setItem('tokenIdSafeMap',res.token);
+      }else{
+        alert('Se ha detectado Usuario Intruso');
       }
     })
   }

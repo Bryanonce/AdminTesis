@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+//Services
+import { AdminTokenService } from '../../services/admin-token.service';
+
 
 @Component({
   selector: 'app-header',
@@ -6,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  usuario:string;
+  id:string;
+  constructor(private _adminToken:AdminTokenService,private router:Router) { }
 
   ngOnInit(): void {
+    let token = localStorage.getItem('tokenIdSafeMap')
+    this.usuario = (this._adminToken.getJwtPayload(token).usuarioDb.nombre);
+    this.id = (this._adminToken.getJwtPayload(token).usuarioDb._id);
+
   }
 
   cerrarSession(){
@@ -17,5 +26,8 @@ export class HeaderComponent implements OnInit {
     location.reload();
   }
 
+  miCuenta(){
+    this.router.navigate(['/cuentas',this.id])
+  }
 
 }

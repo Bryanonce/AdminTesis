@@ -8,7 +8,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class LoginComponent implements OnInit {
   @ViewChild('userEmail') userEmail: ElementRef;
   @ViewChild('userPass') userPass: ElementRef;
-  private permitirIngreso:boolean = false;
   constructor() { }
 
   ngOnInit(): void {

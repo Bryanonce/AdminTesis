@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 //Services
 import { ServicioConfigService } from '../../services/servicio-config.service';
-
-//Modules
 import { ConfigureRest } from '../../module/restConfig.module';
 import { ConfigResponse } from '../../module/restConfigGet.module'
 
@@ -25,7 +23,8 @@ export class DashboardComponent implements OnInit {
   public existeDato:boolean = false;
   public idConfig:string;
   //public rango:number = document.getElementById('customRange1').value;
-  constructor(public _servicioConfig:ServicioConfigService) { }
+  constructor(private _servicioConfig:ServicioConfigService,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -69,6 +68,5 @@ export class DashboardComponent implements OnInit {
       });
     }
   }
-
 
 }

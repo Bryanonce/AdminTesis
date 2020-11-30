@@ -49,6 +49,7 @@ export class MapaComponent implements OnInit {
           resp.config.escala
           );
       }
+      //console.log(this.configMapa);
       this.consulta = new Consulta();
       this._webSocket.listendEvent(this.evento).subscribe((res:{lat:number,long:number,_id?:string})=>{
         if(this.realTime === true){

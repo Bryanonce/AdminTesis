@@ -20,6 +20,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import {environment} from '../environments/environment';
 import { CuentasComponent } from './components/cuentas/cuentas.component';
+import { CuentaComponent } from './components/cuenta/cuenta.component';
 
 const config: SocketIoConfig = { 
   url: environment.wsurl, options: {} 
@@ -34,7 +35,8 @@ const config: SocketIoConfig = {
     HeaderComponent,
     MapaComponent,
     HomeComponent,
-    CuentasComponent
+    CuentasComponent,
+    CuentaComponent
   ],
   imports: [
     BrowserModule,

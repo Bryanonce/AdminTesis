@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Usuario" aria-label="Search">
+        <input #entrada (keyup)="buscarUsuario()" class="form-control mr-sm-2" type="search" placeholder="Buscar Usuario" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar Usuario</button>
     </form>
 </nav>
@@ -8,15 +8,16 @@
 <div class="container mt-2 pb-5">
     <div class="card-deck">
 
-        <div class="card" *ngFor="let usuario of listaUsuarios">
-            <img class="card-img-top" src={{usuario.img}} alt="Card image cap">
+        <div class="card" *ngFor="let usuario of listaUsuariosFiltro">
+            <img class="card-img-top img-fluid" src={{usuario.img}} alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{usuario.nombre}}</h5>
-                <p class="card-text">Correo: {{usuario.email}}</p>
-                <p class="card-text">Rol: {{usuario.tipo}}</p>
-                <p class="card-text">Registrado por google: {{usuario.google}}</p>
-                <button class="btn btn-secondary col-md-6">Editar</button>
-                <button class="btn btn-danger col-md-6">Eliminar</button>
+                <p class="card-text">id: <small>{{usuario._id}}</small></p>
+                <p class="card-text">Correo: <small>{{usuario.email}}</small> </p>
+                <p class="card-text">Rol: <small>{{usuario.tipo}}</small> </p>
+                <!--<p class="card-text">Registrado por google: {{usuario.google}}</p>-->
+                <button (click)="editarUsuario(usuario._id)" class="btn btn-secondary col-md-6">Editar</button>
+                <button (click)="eliminarUsuario(usuario._id)" class="btn btn-danger col-md-6">Eliminar</button>
             </div>
         </div>
 
