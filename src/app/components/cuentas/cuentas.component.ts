@@ -25,6 +25,7 @@ export class CuentasComponent implements OnInit {
 
   listaUsuarios:UsuariosModule[] = [];
   listaUsuariosFiltro:UsuariosModule[] = [];
+  public stringApi:String = environment.ApirestImagen;
   
   constructor(private _servicioService:ServicioService,
               private _busqueda:BusquedaIterativaService,

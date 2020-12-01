@@ -22,6 +22,7 @@ export class CuentaComponent implements OnInit {
     nombre: '',
     img: ''
   };
+  public stringApi:String = environment.ApirestImagen;
 
   private fileSelected:File = undefined;
 
@@ -92,6 +93,7 @@ export class CuentaComponent implements OnInit {
       }).subscribe((res)=>{
         console.log(res);
         this.cargaInicial();
+        
       })
     }
     

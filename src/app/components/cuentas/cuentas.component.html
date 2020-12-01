@@ -14,7 +14,7 @@
             </ng-template>
 
             <ng-template #imgNormal>
-                <img class="card-img-top img-fluid" src="http://localhost:5000/imagen/{{usuario.img}}" alt="{{usuario.nombre}}">
+                <img class="card-img-top img-fluid" src="{{stringApi}}/{{usuario.img}}" alt="{{usuario.nombre}}">
             </ng-template>
             <div *ngIf="usuario.img.indexOf('https://')>=0;then imgGoogle;else imgNormal"></div>
             <!--<img class="card-img-top img-fluid" src={{usuario.img}} alt="Card image cap">-->
