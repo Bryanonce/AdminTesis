@@ -9,7 +9,15 @@
     <div class="card-deck">
 
         <div class="card" *ngFor="let usuario of listaUsuariosFiltro">
-            <img class="card-img-top img-fluid" src={{usuario.img}} alt="Card image cap">
+            <ng-template #imgGoogle>
+                <img class="card-img-top img-fluid" src="{{usuario.img}}" alt="{{usuario.nombre}}">
+            </ng-template>
+
+            <ng-template #imgNormal>
+                <img class="card-img-top img-fluid" src="http://localhost:5000/imagen/{{usuario.img}}" alt="{{usuario.nombre}}">
+            </ng-template>
+            <div *ngIf="usuario.img.indexOf('https://')>=0;then imgGoogle;else imgNormal"></div>
+            <!--<img class="card-img-top img-fluid" src={{usuario.img}} alt="Card image cap">-->
             <div class="card-body">
                 <h5 class="card-title">{{usuario.nombre}}</h5>
                 <p class="card-text">id: <small>{{usuario._id}}</small></p>

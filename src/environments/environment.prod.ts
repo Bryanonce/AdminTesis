@@ -8,5 +8,7 @@ export const environment = {
   ApirestUsers: 'https://socketiotesis.herokuapp.com/users',
   ApirestLogin: 'https://socketiotesis.herokuapp.com/login',
   ApirestConfig: 'https://socketiotesis.herokuapp.com/config',
+  ApirestImagen: 'https://socketiotesis.herokuapp.com/imagen',
+  ApirestUpload: 'https://socketiotesis.herokuapp.com/upload',
   horaDesf: 0
 };

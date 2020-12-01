@@ -12,6 +12,8 @@ export const environment = {
   ApirestConfig: 'http://localhost:5000/config',
   ApirestUsers: 'http://localhost:5000/users',
   ApirestLogin: 'http://localhost:5000/login',
+  ApirestImagen: 'http://localhost:5000/imagen',
+  ApirestUpload: 'http://localhost:5000/upload',
   horaDesf: 0
 };
 

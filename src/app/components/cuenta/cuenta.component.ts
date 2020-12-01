@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 
 //Services
 import { ServicioService } from '../../services/servicio.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-cuenta',
@@ -11,37 +12,89 @@ import { ServicioService } from '../../services/servicio.service';
   styleUrls: ['./cuenta.component.scss']
 })
 export class CuentaComponent implements OnInit {
-  @ViewChild('emailBox') emailBox: ElementRef;
   @ViewChild('passBox') passBox: ElementRef;
+  @ViewChild('emailBox') emailBox: ElementRef;
   @ViewChild('nombreBox') nombreBox: ElementRef;
-  @ViewChild('imgBox') imgBox: ElementRef;
 
-  public usuario:{email:string,nombre:string,img:string} = {
+  public usuario:{id:string,email:string,nombre:string,img:string} = {
+    id: '',
     email: '',
     nombre: '',
     img: ''
   };
 
-  constructor(private routeActive:ActivatedRoute,private _servicioService:ServicioService) {
+  private fileSelected:File = undefined;
+
+  constructor(private routeActive:ActivatedRoute,
+              private _servicioService:ServicioService,
+              private _imagenServer:ImageService
+              ) {
+    this.cargaInicial();
+   }
+
+
+  cargaInicial(){
     this.routeActive.params
     .subscribe((params:{id:string}) =>{
       this._servicioService.getDatosSimplesWithHeader(environment.ApirestUsers,String(params.id))
-      .subscribe((usuarioDb:{ok:boolean,usuarios:[{email:string,nombre:string,img:string}]})=>{
+      .subscribe((usuarioDb:{ok:boolean,usuarios:[{_id:string,email:string,nombre:string,img:string}]})=>{
         this.usuario = {
+          id: usuarioDb.usuarios[0]._id,
           email: usuarioDb.usuarios[0].email,
           nombre: usuarioDb.usuarios[0].nombre,
           img: usuarioDb.usuarios[0].img
         }
-        //console.log(this.usuario)
       })
     })
-   }
+  }
 
   ngOnInit(): void {
    
   }
-  ngAfterViewInit(){
 
+  ngAfterViewInit(){
+  }
+  
+  onFileSelected(event){
+    this.fileSelected = <File>event.target.files[0];
+    console.log(this.fileSelected);
   }
 
+  onUpload(){
+    if(!this.fileSelected){
+      this.actualizarData();
+    }else{
+      const fd:FormData = new FormData();
+      fd.append('archivo',this.fileSelected,this.fileSelected.name);
+      this._imagenServer.uploadImage(fd,this.usuario.id)
+      .subscribe((resp:{ok:boolean,message:string})=>{
+        alert(resp.message);
+        this.actualizarData();
+      })
+    }
+    
+  }
+
+  actualizarData(){
+    if(this.passBox.nativeElement.value.trim() !== '' || (this.passBox.nativeElement.value.trim().length > 5)){
+      this._imagenServer.actualizarDatos(this.usuario.id,{
+        email: this.emailBox.nativeElement.value,
+        pass: this.passBox.nativeElement.value,
+        nombre: this.nombreBox.nativeElement.value
+      }).subscribe((res)=>{
+        console.log(res);
+        this.cargaInicial();
+      })
+    }else{
+      this._imagenServer.actualizarDatos(this.usuario.id,{
+        email: this.emailBox.nativeElement.value,
+        nombre: this.nombreBox.nativeElement.value
+      }).subscribe((res)=>{
+        console.log(res);
+        this.cargaInicial();
+      })
+    }
+    
+  }
+  
 }

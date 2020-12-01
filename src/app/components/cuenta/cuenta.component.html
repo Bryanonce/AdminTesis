@@ -1,28 +1,37 @@
+<ng-template #imgGoogle>
+    <img src="{{usuario.img}}" alt="{{usuario.nombre}}">
+</ng-template>
+
+<ng-template #imgNormal>
+    <img src="http://localhost:5000/imagen/{{usuario.img}}" alt="{{usuario.nombre}}">
+</ng-template>
+
 <div class="container pt-3 d-flex align-items-center justify-content-center">
     <form>
         <div class="d-flex align-items-center justify-content-center mb-2">
-            <img src="{{usuario.img}}" alt="{{usuario.nombre}}">
+
+            <div *ngIf="usuario.img.indexOf('https://')>=0;then imgGoogle;else imgNormal"></div>
         </div>
 
         <div class="form-row">
 
             <div class="form-group col-md-6">
-                <label #emailBox for="inputEmail4">Email</label>
-                <input [(value)]="usuario.email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <label for="inputEmail4">Email</label>
+                <input #emailBox [(value)]="usuario.email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
             </div>
             <div class="form-group col-md-6">
-                <label #passBox for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                <label for="inputPassword4">Password</label>
+                <input #passBox type="password" class="form-control" id="inputPassword4" placeholder="Password">
             </div>
         </div>
         <div class="form-group">
-            <label #nombreBox for="inputAddress">Nombres y Apellidos</label>
-            <input [(value)]="usuario.nombre" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <label for="inputAddress">Nombres y Apellidos</label>
+            <input #nombreBox [(value)]="usuario.nombre" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Imagen</label>
-            <input #imgBox type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input (change)="onFileSelected($event)" #imgBox type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
-        <button [(value)]="usuario.img" type="submit" class="btn btn-primary">Actualizar</button>
+        <button (click)="onUpload()" [(value)]="usuario.img" type="submit" class="btn btn-primary">Actualizar</button>
     </form>
 </div>
