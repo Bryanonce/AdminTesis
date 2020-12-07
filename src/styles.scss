@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fondo {
+    background: #051832;
+}
+
+.img-logo {
+    background-image: url("./assets/fondo.svg");
+    //background-image: center;
+    //background-image: cover;
+    background-size: cover;
+}
+
+.fl-r {
+    margin-top: 12%;
+    justify-content: end;
+}
+
+.h-20 {
+    height: 40%;
+}
+
+.b-raduis-t {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.b-raduis-b {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.f-withe {
+    padding: 15px;
+    width: 300px;
+    background: #fff;
+}
+
+@media (max-width: 769px) {
+    .fl-r {
+        margin-top: 50%;
+    }
+}

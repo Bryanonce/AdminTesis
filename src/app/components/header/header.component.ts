@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 //Services
 import { AdminTokenService } from '../../services/admin-token.service';
+import { WebSocketService } from '../../services/web-socket.service';
 
 
 @Component({
@@ -12,7 +13,12 @@ import { AdminTokenService } from '../../services/admin-token.service';
 export class HeaderComponent implements OnInit {
   usuario:string;
   id:string;
-  constructor(private _adminToken:AdminTokenService,private router:Router) { }
+  constructor(private _adminToken:AdminTokenService,
+              private router:Router,
+              private _webSocket: WebSocketService
+    ) { 
+      this._webSocket.revisarStatus();
+    }
 
   ngOnInit(): void {
     let token = localStorage.getItem('tokenIdSafeMap')

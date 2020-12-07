@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ServicioService } from './services/servicio.service';
 import { AdminTokenService } from './services/admin-token.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,9 +36,10 @@ export class AppComponent implements OnInit{
       if(time>=payload.exp){
         this.variable = false;
         localStorage.removeItem('tokenIdSafeMap');
-        alert("Periodo Expirado, Ingrese de Nuevo")
+        alert("Periodo Expirado, Ingrese de Nuevo");
       }else{
         this.variable = true;
+        
       }
     }else{
       this.variable = false;
@@ -57,6 +59,7 @@ export class AppComponent implements OnInit{
       if(res.ok){
         this.variable = res.ok;
         localStorage.setItem('tokenIdSafeMap',res.token);
+        
       }else{
         alert('Se ha detectado Usuario Intruso');
       }

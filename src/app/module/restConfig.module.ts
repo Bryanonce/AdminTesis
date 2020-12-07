@@ -6,6 +6,8 @@ export class ConfigureRest{
         public latfin: number = -79.096961,
         public longini: number = -1.712307,
         public longfin: number = 1.712307,
-        public escala: number = 0.95
+        public escala: number = 0.95,
+        public peligromedio: number = 4,
+        public peligroalto: number = 6
     ){}
 }

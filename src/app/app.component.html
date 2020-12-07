@@ -1,15 +1,17 @@
 <ng-template #login>
     <app-login></app-login>
-    <div class="container d-flex align-items-center justify-content-center">
-        <form>
-            <div class="form-group">
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <div class="fondo h-20">
+        <div class="container d-flex align-items-center justify-content-end">
+            <form>
+                <div class="f-withe form-group b-raduis-b">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Mantener Sesión Abierta</label>
+                    </div>
+                    <button (click)="verificarLogin()" type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                <button (click)="verificarLogin()" type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </ng-template>
 <ng-template #dash>

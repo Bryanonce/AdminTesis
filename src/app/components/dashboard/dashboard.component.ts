@@ -20,6 +20,8 @@ export class DashboardComponent implements OnInit {
   @ViewChild('latimax') latimax: ElementRef;
   @ViewChild('longimin') longimin: ElementRef;
   @ViewChild('longimax') longimax: ElementRef;
+  @ViewChild('peligmedio') peligmedio: ElementRef;
+  @ViewChild('peligalto') peligalto: ElementRef;
   public existeDato:boolean = false;
   public idConfig:string;
   //public rango:number = document.getElementById('customRange1').value;
@@ -44,6 +46,8 @@ export class DashboardComponent implements OnInit {
         this.latimax.nativeElement.value = response.config.latfin;
         this.longimin.nativeElement.value = response.config.longini;
         this.longimax.nativeElement.value = response.config.longfin;
+        this.peligmedio.nativeElement.value = response.config.peligromedio;
+        this.peligalto.nativeElement.value = response.config.peligroalto;
       }
     })    
   }
@@ -56,7 +60,9 @@ export class DashboardComponent implements OnInit {
       this.latimax.nativeElement.value,
       this.longimin.nativeElement.value,
       this.longimax.nativeElement.value,
-      this.slider.nativeElement.value
+      this.slider.nativeElement.value,
+      this.peligmedio.nativeElement.value,
+      this.peligalto.nativeElement.value
     );
     if(this.existeDato){
       this._servicioConfig.actualizarData(this.idConfig,config).subscribe((resp:ConfigResponse)=>{

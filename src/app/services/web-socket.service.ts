@@ -12,12 +12,13 @@ export class WebSocketService {
 
 
   constructor(private socket: Socket) { 
-    this.revisarStatus();
+    //this.revisarStatus();
   }
 
   revisarStatus(){
     this.socket.on('connect',()=>{
       console.log('Conectado al Servidor');
+      this.emitirMsj('conectado',{token:localStorage.getItem('tokenIdSafeMap')});
       this.estadoServer = true;
     })
     this.socket.on('disconnect',()=>{
@@ -36,9 +37,9 @@ export class WebSocketService {
     return this.socket.fromEvent(event)
   }
 
-  loginWS(nombre:string){
-    console.log('Configurando',nombre);
-    this.socket.emit('configurar-usuario',{nombre},(resp)=>{
+  loginWS(id:string){
+    console.log('Configurando',id);
+    this.socket.emit('conectado',{id},(resp)=>{
       console.log(resp);
     })
   }

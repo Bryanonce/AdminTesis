@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Inicio_web);
+      }
+
+      .cls-2, .cls-4, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 136px;
+        font-family: CenturyGothic-Bold, Century Gothic;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        fill: url(#pattern);
+      }
+
+      .cls-4 {
+        stroke: #707070;
+      }
+
+      .cls-5 {
+        fill: #1b314e;
+      }
+
+      .cls-6, .cls-7 {
+        font-size: 15px;
+        font-family: CenturyGothic, Century Gothic;
+      }
+
+      .cls-7 {
+        fill: #6e7a8a;
+        opacity: 0.6;
+      }
+
+      .cls-10, .cls-8 {
+        stroke: none;
+      }
+
+      .cls-9 {
+        fill: none;
+      }
+
+      .cls-10 {
+        fill: #707070;
+      }
+
+      .cls-11 {
+        fill: #051832;
+      }
+
+      .cls-12 {
+        filter: url(#Path_1);
+      }
+
+      .cls-13 {
+        filter: url(#Rectangle_1);
+      }
+    </style>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 63 63">
+      <image width="63" height="63" xlink:href="data:image/png;base64,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"/>
+    </pattern>
+    <filter id="Rectangle_1" x="1204.5" y="409.5" width="524" height="267" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_1" x="1279.5" y="581.5" width="376" height="68" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Inicio_web">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Inicio_web" data-name="Inicio web" class="cls-1">
+    <rect class="cls-11" width="1920" height="1080"/>
+    <g id="Group_36" data-name="Group 36" transform="translate(93 145.5)">
+      <text id="Safe_Map" data-name="Safe Map" class="cls-2" transform="translate(420 447)"><tspan x="-312.807" y="0">Safe Map</tspan></text>
+      <rect id="Group_35" data-name="Group 35" class="cls-3" width="88" height="89" transform="translate(744 358)"/>
+    </g>
+  </g>
+</svg>
