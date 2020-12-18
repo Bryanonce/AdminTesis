@@ -38,7 +38,7 @@ export class ServicioService {
   }
   postDelete(url:string,id:string){
     let headers = new HttpHeaders().set('token-request', localStorage.getItem('tokenIdSafeMap'));
-    let uri = `${url}?id=${id}`
+    let uri = `${url}/${id}`
     return this.http.delete(uri,{headers})
   }
 

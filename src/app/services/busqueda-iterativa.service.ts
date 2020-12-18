@@ -8,15 +8,22 @@ export class BusquedaIterativaService {
 
   constructor() { }
 
-  busquedaUsuario(listaUsuarios:UsuariosModule[],texto:string){
+  busquedaUsuario(listaUsuarios:UsuariosModule[],texto:string,id?:boolean){
     let listaUsuariosFiltro:UsuariosModule[] = [];
     
     texto = texto.toLowerCase();
     
     listaUsuarios.forEach((element,index)=>{
-      if(element.nombre.toLowerCase().indexOf(texto)>=0){
-        listaUsuariosFiltro.push(element);
-        //console.log(index);
+      if(id){
+        if(element._id.toLowerCase().indexOf(texto)>=0){
+          listaUsuariosFiltro.push(element);
+          //console.log(index);
+        }
+      }else{
+        if(element.nombre.toLowerCase().indexOf(texto)>=0){
+          listaUsuariosFiltro.push(element);
+          //console.log(index);
+        }
       }
     })
     return listaUsuariosFiltro

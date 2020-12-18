@@ -1,0 +1,12 @@
+<ng-template #mapa>
+    <div id="mapa-box">
+
+    </div>
+</ng-template>
+<ng-template #error>
+    <div class="container mt-5 pt-5 d-flex align-items-center justify-content-center">
+        <h1>No se ha encontrado datos de este usuario :(</h1>
+    </div>
+</ng-template>
+
+<div *ngIf="usuarioNotFound;then error;else mapa"></div>

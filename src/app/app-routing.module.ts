@@ -7,13 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CuentasComponent } from './components/cuentas/cuentas.component';
 import { CuentaComponent } from './components/cuenta/cuenta.component';
-
+import { LocalizarComponent } from './components/localizar/localizar.component';
 
 const routes: Routes = [
   {path: 'mapa',component: MapaComponent},
   {path: 'dash',component: DashboardComponent},
   {path: 'cuentas',component: CuentasComponent},
   {path: 'cuentas/:id',component: CuentaComponent},
+  {path: 'mapa/:id',component: LocalizarComponent},
   {path: '**',component:HomeComponent},
   {path: '',component: HomeComponent}
 ];
