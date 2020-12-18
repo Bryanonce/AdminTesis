@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 //Servicios
@@ -20,16 +20,24 @@ import { environment } from '../../../environments/environment';
   templateUrl: './mapa.component.html',
   styleUrls: ['./mapa.component.scss']
 })
-export class MapaComponent implements OnInit {
+export class MapaComponent {
   mapa: mapboxgl.Map;
   private realTime: Boolean = false;
   public unoHours: Boolean = false;
   public dosHours: Boolean = true;
   public tresHours: Boolean = false;
   public evento:string = 'recargar';
-  public coorden = [];
+  public coorden:{
+    "type": "Feature",
+    "properties": {"mag": number,"name":string},
+    "geometry": {
+      "type": "Point",
+      "coordinates": [number,number]
+    }
+  }[] = [];
   public consulta:Consulta;
   public anioIni:Number;
+  public actualElement = new Map();
   public configMapa: ConfigureRest = new ConfigureRest();
   constructor(public _servicioService:ServicioService,
               public _webSocket:WebSocketService,
@@ -53,26 +61,32 @@ export class MapaComponent implements OnInit {
       this.consulta = new Consulta();
       this._webSocket.listendEvent(this.evento).subscribe((res:{lat:number,long:number,_id?:string})=>{
         if(this.realTime === true){
-          this.coorden = []
-          this._servicioService.getDatosSimplex(environment.ApirestUlti).subscribe((res:any)=>{
-            res.datos.forEach((elemento)=>{
-              this.coorden.push(
-                {
-                  "type": "Feature",
-                  "properties": {"mag": this.configMapa.escala, name:elemento._id},
-                  "geometry": {
-                    "type": "Point",
-                    "coordinates": [elemento.long,elemento.lat]
-                  }
+          let index:number = 0;
+          for(let coordenada of this.coorden){
+            if(coordenada.properties.name === res._id){
+              break;
+            }
+            index++;
+          }
+          if(this.coorden.length === index){
+            this.coorden.push(
+              {
+                "type": "Feature",
+                "properties": {"mag": this.configMapa.escala,"name":res._id},
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [res.long,res.lat]
                 }
-              );
-            })
-          })
+              }
+            );
+          }else{
+            this.coorden[index].geometry.coordinates = [res.long,res.lat];
+          }
         }else{
           this.coorden.push(
             {
               "type": "Feature",
-              "properties": {"mag": this.configMapa.escala},
+              "properties": {"mag": this.configMapa.escala,"name":"no-real"},
               "geometry": {
                 "type": "Point",
                 "coordinates": [res.long,res.lat]
@@ -89,18 +103,6 @@ export class MapaComponent implements OnInit {
     })
     
   }
-
-  ngOnInit() {
-    
-  }
-
-  ngAfterViewInit(){
-    
-  }
-
-
-
-
 
   generarConsulta(horasMenos:number,diasMenos?:number):Consulta{
     let fecha = new Date()
@@ -172,7 +174,7 @@ export class MapaComponent implements OnInit {
             this.coorden.push(
               {
                 "type": "Feature",
-                "properties": {"mag": this.configMapa.escala},
+                "properties": {"mag": this.configMapa.escala,"name":"no-real"},
                 "geometry": {
                   "type": "Point",
                   "coordinates": [elemento.long,elemento.lat]
@@ -182,7 +184,7 @@ export class MapaComponent implements OnInit {
           })
         });
       }else{
-        this._servicioService.getDatosSimplex(environment.ApirestUlti).subscribe((res:any)=>{
+        this._servicioService.getDatosSimplex(environment.ApirestReal).subscribe((res:{ok:boolean,datos:{_id:string,lat:number,long:number}[]})=>{
           res.datos.forEach((elemento)=>{
             this.coorden.push(
               {
