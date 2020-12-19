@@ -2,29 +2,22 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Coordenadas</th>
+            <th scope="col">Fecha [yy/mm/dd]</th>
+            <th scope="col">Hora</th>
         </tr>
     </thead>
-    <tbody>
+
+    <tbody *ngFor="let notif of notify;let i = index">
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <th scope="row">{{i+1}}</th>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.email}}</td>
+            <td>Latitud: {{notif.lat}}, Longitud: {{notif.long}} <button (click)="localizarNotify(usuario._id,notif.lat,notif.long)" class="btn btn-success col-md-2">Localizar</button></td>
+            <td>{{notif.fecha.slice(0,10)}}</td>
+            <td>{{notif.fecha.slice(11,19)}}</td>
         </tr>
     </tbody>
 </table>

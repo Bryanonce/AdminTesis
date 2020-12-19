@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   claveMapbox: 'pk.eyJ1IjoiYnJ5YW5vbmNlIiwiYSI6ImNrZ3dlMjdtNjA5YTMyeXA2cWNwbHF4YXEifQ.oBbGH3SNhdrk6V7ui4eypQ',
+  LocationReaload: 'http://localhost:4200/',
   Apirest: 'http://localhost:5000/datos',
   wsurl: 'http://localhost:5000/',
   ApiGoogle: 'https://socketiotesis.herokuapp.com/google',

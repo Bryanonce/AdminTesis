@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'infra/:id',component: InfraccionesComponent},
   {path: 'cuentas/:id',component: CuentaComponent},
   {path: 'mapa/:id',component: LocalizarComponent},
+  {path: 'mapa/:id/:lat/:long',component: LocalizarComponent},
   {path: '**',component:HomeComponent},
   {path: '',component: HomeComponent}
 ];

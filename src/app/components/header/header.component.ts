@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 //Services
 import { AdminTokenService } from '../../services/admin-token.service';
 import { WebSocketService } from '../../services/web-socket.service';
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
   cerrarSession(){
     localStorage.removeItem('tokenIdSafeMap');
-    location.reload();
+    location.href = environment.LocationReaload;
   }
 
   miCuenta(){

@@ -32,17 +32,24 @@ export class LocalizarComponent implements OnInit {
     ) 
   {
     this.routeActive.params
-    .subscribe((params:{id:string}) =>{
+    .subscribe((params:{id:string,lat?:number,long?:number}) =>{
+      
       this._servicioService.getDatosSimplesWithHeader(environment.ApirestUlti,params.id)
       .subscribe((res:{ok:boolean,datos:Lugar})=>{
         //console.log(res.datos)
         if(res.datos){
           this.lugares.push(res.datos);
+          if(params.lat){
+            this.lugares[0].lat = params.lat;
+            this.lugares[0].long = params.long;
+          }
           this.usuarioNotFound = false;
           return this.primerCarga();
         }else{
           this.usuarioNotFound = true;
-        }          
+        }
+        
+                  
       })
     })
   }
