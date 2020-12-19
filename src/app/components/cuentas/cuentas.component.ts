@@ -52,6 +52,7 @@ export class CuentasComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  
 
   primeraCarga() {
     let promesa = new Promise((resolve,reject)=>{
@@ -93,6 +94,10 @@ export class CuentasComponent implements OnInit {
 
   localizarUsuario(id:string){
     this.router.navigate(['/mapa', id])
+  }
+
+  observarInfracciones(id:string){
+    this.router.navigate(['/infra', id])
   }
 
 }

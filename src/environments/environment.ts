@@ -15,6 +15,7 @@ export const environment = {
   ApirestImagen: 'http://localhost:5000/imagen',
   ApirestUpload: 'http://localhost:5000/upload',
   ApirestReal: 'http://localhost:5000/real',
+  ApirestNoti: 'http://localhost:5000/alert',
   horaDesf: 0
 };
 

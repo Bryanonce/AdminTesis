@@ -22,6 +22,7 @@ import {environment} from '../environments/environment';
 import { CuentasComponent } from './components/cuentas/cuentas.component';
 import { CuentaComponent } from './components/cuenta/cuenta.component';
 import { LocalizarComponent } from './components/localizar/localizar.component';
+import { InfraccionesComponent } from './components/infracciones/infracciones.component';
 
 const config: SocketIoConfig = { 
   url: environment.wsurl, options: {} 
@@ -38,7 +39,8 @@ const config: SocketIoConfig = {
     HomeComponent,
     CuentasComponent,
     CuentaComponent,
-    LocalizarComponent
+    LocalizarComponent,
+    InfraccionesComponent
   ],
   imports: [
     BrowserModule,

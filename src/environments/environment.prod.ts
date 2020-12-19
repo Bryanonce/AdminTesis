@@ -11,5 +11,6 @@ export const environment = {
   ApirestImagen: 'https://socketiotesis.herokuapp.com/imagen',
   ApirestUpload: 'https://socketiotesis.herokuapp.com/upload',
   ApirestReal: 'https://socketiotesis.herokuapp.com/real',
+  ApirestNoti: 'https://socketiotesis.herokuapp.com/alert',
   horaDesf: 0
 };
